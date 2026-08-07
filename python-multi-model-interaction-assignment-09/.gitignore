@@ -1,0 +1,6 @@
+local_model_config.txt
+.env
+logs/
+*.log
+__pycache__/
+*.pyc
