@@ -1,0 +1,5 @@
+Production retrieval systems often fail not because the language model is weak, but because the supporting context was prepared poorly. A policy sentence may begin near the end of one chunk and finish near the start of the next chunk, so a naive splitter can separate cause from consequence and make the final answer look confident while missing the key condition.
+
+Chunk overlap reduces that risk by repeating the tail of one chunk at the head of the next chunk. This repeated window gives the retriever another chance to capture the bridge between two ideas. In practical RAG systems, the overlap acts like a safety margin around semantic boundaries, especially when documents contain dense rules, long sentences, product limitations, or policy exceptions.
+
+A smart splitter proof should not simply trust library parameters. It should inspect the generated chunks, compare consecutive strings, and show that the expected overlap exists. This turns chunking from an invisible preprocessing step into a measurable data-quality check that can be used before documents enter a production vector database.
