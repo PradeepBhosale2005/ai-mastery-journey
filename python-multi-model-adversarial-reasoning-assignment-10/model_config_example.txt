@@ -1,0 +1,20 @@
+# Copy this file to local_model_config.txt and fill in real values locally.
+# Do not commit local_model_config.txt.
+
+MODEL_A_BASE_URL=https://your-company-model-a-server/v1
+MODEL_A_MODEL=your-model-a-name
+MODEL_A_VERIFY_SSL=false
+MODEL_A_USERNAME=your-model-a-username
+MODEL_A_PASSWORD=your-model-a-password
+MODEL_A_TIMEOUT=300
+MODEL_A_RETRIES=2
+MODEL_A_RETRY_DELAY=2
+
+MODEL_B_BASE_URL=https://your-company-model-b-server/v1
+MODEL_B_MODEL=your-model-b-name
+MODEL_B_VERIFY_SSL=false
+MODEL_B_USERNAME=your-model-b-username
+MODEL_B_PASSWORD=your-model-b-password
+MODEL_B_TIMEOUT=300
+MODEL_B_RETRIES=2
+MODEL_B_RETRY_DELAY=2
