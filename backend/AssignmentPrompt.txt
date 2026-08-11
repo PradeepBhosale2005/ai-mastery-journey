@@ -1,0 +1,39 @@
+LangChain Assignment(Day-1)
+Instructions:
+Complete the following 4 tasks using Python and LangChain.
+
+Setup: Use python-dotenv to load your API keys securely. Do not hardcode any keys in your submitted scripts.
+
+Assignment 1: The "Messy Data" Cleaner (PromptTemplates & Parsers)
+Scenario: The customer support team receives product reviews that are highly emotional and rambling. They need a tool to extract the core information.
+Task: 1. Create a PromptTemplate that takes a variable called {messy_review}.
+2. Instruct the LLM to read the review and output only a comma-separated string in this exact format: Sentiment: [Positive/Negative], Core Issue: [Brief summary of the problem].
+3. Use an LLM Wrapper (Gemini or OpenAI) and a StrOutputParser to build the chain.
+4. Test it with this input: "I bought this blender yesterday and it's absolutely terrible! The lid flew off while I was making a smoothie and my whole kitchen is covered in spinach. I want a refund!"
+
+Assignment 2: The Marketing Assembly Line (Multi-step LCEL Chains)
+Scenario: Your marketing team needs to generate global campaigns rapidly.
+Task: Build a two-step sequence using LangChain Expression Language (LCEL).
+Chain 1: Take a {product_name} and generate a catchy, 5-word English slogan.
+Chain 2: Take the output (slogan) from Chain 1, and translate it into French.
+Combine these into a single runnable sequence using the pipe operator (|).
+Print the final French slogan to the console.
+
+Assignment 3: Mini-RAG (Retrieval-Augmented Generation)
+Scenario: You have a small text file containing confidential rules for a fictional board game. The AI shouldn't know these rules by default.
+Task:
+Create a simple text file named game_rules.txt with 4-5 sentences of made-up rules (e.g., "The golden token is worth 50 points. Players cannot cross the river without a bridge card.").
+Use a LangChain Document Loader to read this file.
+Use a Text Splitter to chunk the document.
+Convert the chunks into embeddings and store them in an in-memory Vector Store (like FAISS or DocArrayInMemorySearch).
+Query the Vector Store with the question: "How many points is the golden token worth?" and print the AI's retrieved response.
+
+Assignment 4: The Watchful Eye (Callbacks & Logging)
+Scenario: API calls cost money. Your manager wants to know exactly how many "tokens" your AI app is consuming.
+Task: 1. Take the code you wrote for Assignment 1.
+2. Implement a LangChain Callback Handler (e.g., get_openai_callback if using OpenAI, or the equivalent token counter for your specific model).
+3. Execute the chain.
+4. Print a clean, formatted receipt to the console showing: Total Tokens Used, Prompt Tokens, Completion Tokens, and Total Cost.
+
+Note: To resolve corporate IT security blocks on external SaaS API keys (OpenAI/Google AI Studio), to install Ollama, download a small (3 or 7 billion parameter) model, serve that locally, and use that.
+
