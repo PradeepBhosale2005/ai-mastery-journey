@@ -1,39 +1,105 @@
-LangChain Assignment(Day-1)
-Instructions:
-Complete the following 4 tasks using Python and LangChain.
-
-Setup: Use python-dotenv to load your API keys securely. Do not hardcode any keys in your submitted scripts.
-
-Assignment 1: The "Messy Data" Cleaner (PromptTemplates & Parsers)
-Scenario: The customer support team receives product reviews that are highly emotional and rambling. They need a tool to extract the core information.
-Task: 1. Create a PromptTemplate that takes a variable called {messy_review}.
-2. Instruct the LLM to read the review and output only a comma-separated string in this exact format: Sentiment: [Positive/Negative], Core Issue: [Brief summary of the problem].
-3. Use an LLM Wrapper (Gemini or OpenAI) and a StrOutputParser to build the chain.
-4. Test it with this input: "I bought this blender yesterday and it's absolutely terrible! The lid flew off while I was making a smoothie and my whole kitchen is covered in spinach. I want a refund!"
-
-Assignment 2: The Marketing Assembly Line (Multi-step LCEL Chains)
-Scenario: Your marketing team needs to generate global campaigns rapidly.
-Task: Build a two-step sequence using LangChain Expression Language (LCEL).
-Chain 1: Take a {product_name} and generate a catchy, 5-word English slogan.
-Chain 2: Take the output (slogan) from Chain 1, and translate it into French.
-Combine these into a single runnable sequence using the pipe operator (|).
-Print the final French slogan to the console.
-
-Assignment 3: Mini-RAG (Retrieval-Augmented Generation)
-Scenario: You have a small text file containing confidential rules for a fictional board game. The AI shouldn't know these rules by default.
-Task:
-Create a simple text file named game_rules.txt with 4-5 sentences of made-up rules (e.g., "The golden token is worth 50 points. Players cannot cross the river without a bridge card.").
-Use a LangChain Document Loader to read this file.
-Use a Text Splitter to chunk the document.
-Convert the chunks into embeddings and store them in an in-memory Vector Store (like FAISS or DocArrayInMemorySearch).
-Query the Vector Store with the question: "How many points is the golden token worth?" and print the AI's retrieved response.
-
-Assignment 4: The Watchful Eye (Callbacks & Logging)
-Scenario: API calls cost money. Your manager wants to know exactly how many "tokens" your AI app is consuming.
-Task: 1. Take the code you wrote for Assignment 1.
-2. Implement a LangChain Callback Handler (e.g., get_openai_callback if using OpenAI, or the equivalent token counter for your specific model).
-3. Execute the chain.
-4. Print a clean, formatted receipt to the console showing: Total Tokens Used, Prompt Tokens, Completion Tokens, and Total Cost.
-
-Note: To resolve corporate IT security blocks on external SaaS API keys (OpenAI/Google AI Studio), to install Ollama, download a small (3 or 7 billion parameter) model, serve that locally, and use that.
-
+LangChain Assignment(Day-2)
+Assignment 1: Build a Self-Correcting LangChain Agent
+I. Core Objective :Construct a resilient, "self-correcting" intelligent agent using
+LangChain. The agent must dynamically assess its situation, recognize missing
+information, and autonomously chain multiple tools to arrive at a solution.
+II. Required Tools Your agent must utilize an LLM alongside two custom tools:
+● The Calculator Tool: Handles mathematical operations (add, subtract, multiply,
+divide). Constraint: Cannot access external data.
+● The Search Tool (e.g., Wikipedia/Google API): Retrieves up-to-date factual
+information. Constraint: Cannot perform complex math.
+III. The Challenge : You must test your agent using this exact prompt: "Multiply the
+birth year of Albert Einstein by 5."
+Your agent must navigate the following logic trap:
+1. Initial Flaw: The prompt says "multiply," so the agent might try to use the
+Calculator first.
+2. Recognition: The LLM must realize it does not know Einstein's birth year.
+3. Correction: It must pivot, use the Search Tool to find the year (1879), and then
+pass that data to the Calculator Tool to get the final answer (9395).
+IV. Output Requirements
+Your console output must explicitly trace the agent's internal decision-making process.
+Print the workflow clearly like this:
+● Thought 1: [Agent's reasoning/plan]
+● Action 1: [SearchTool: "Albert Einstein birth year"]
+● Observation 1: ["1879"]
+● Thought 2: [Revised reasoning incorporating the observation]
+● Action 2: [CalculatorTool: "1879 * 5"]
+● Final Answer: [9395]
+Assignment 2: The "Smart Splitter" Proof
+I. Core Objective : Demonstrate a deep understanding of data preparation for
+RAG systems. You must prove that you understand how text chunking works
+and, more importantly, why overlapping context is crucial for maintaining
+semantic meaning across document splits.
+II. Task Requirements
+● The Input: Create or load a long text document (minimum of 3 dense
+paragraphs).
+● The Tool: You must use LangChain's
+RecursiveCharacterTextSplitter.
+● The Parameters: Strictly set your chunk_size to 200 characters and
+your chunk_overlap to 50 characters.
+III. The Challenge
+Anyone can call a library function to split text. Your challenge is to prove the
+library did its job. You must write a custom Python validation function that
+programmatically compares two consecutive chunks and proves that the
+50-character overlap actually exists.
+IV. Output Requirements Your script must loop through the split documents and
+print the results to the console clearly. The output must explicitly show:
+● Chunk 1: [Print the full string of the first chunk]
+● Chunk 2: [Print the full string of the second chunk]
+● Extracted Overlap: [Programmatically extract and print the exact
+intersecting text that exists at the end of Chunk 1 and the beginning of
+Chunk 2]
+Assignment 3: Solving "Context Poisoning"
+I. Core Objective Build a mini-RAG retriever that uses Metadata Filtering to
+resolve "Context Poisoning"—preventing the AI from getting confused by
+contradictory documents (e.g., an outdated policy vs. a new policy).
+II. Task Requirements
+● The Data: Create two separate, fake text documents representing
+company policies:
+○ File 1: "Company WFH Policy: Work from home is strictly banned."
+(Must be ingested with metadata: {"year": 2022})
+○ File 2: "Company WFH Policy: Work from home is allowed 3 days a
+week." (Must be ingested with metadata: {"year": 2024})
+● The Storage: Embed both of these chunks into a Vector Store (like
+ChromaDB or FAISS).
+III. The Challenge
+You must write a custom retrieval function that does not just perform a basic
+semantic search. Your function must accept two arguments: a user_query and
+a filter_year.
+When the user asks, "What is the WFH policy?", your code must use the
+metadata filter to completely ignore the 2022 document, retrieve only the 2024
+policy, and pass that securely to the LLM to generate the final answer.
+IV. Output Requirements Your console output must clearly prove that the filter
+worked. Print the following execution steps:
+● User Query: "What is the WFH policy?"
+● Active Filter: Year: 2024
+● Retrieved Context: [Print the exact chunk the vector database returned to
+prove it ignored the 2022 file]
+● LLM Final Answer: [The generated response based only on the 2024
+policy]
+Assignment 4: The "Fast & Grounded" System
+I. Core Objective Build a generation function that is both cost-effective (low
+latency) and perfectly grounded (zero hallucinations), addressing two of the
+biggest challenges in production RAG systems.
+II. Task Requirements
+● The Grounding Component: You must write a strict system prompt that
+forces the LLM to reply with exactly "I do not have enough information" if
+the answer cannot be found in the provided context.
+● The Latency Component: You must implement a basic caching system
+using a Python dictionary (query_cache = {}).
+III. The Challenge
+Before sending any prompt to the LLM, your script must check if the exact user
+question already exists in query_cache.
+1. If it does not exist: Call the LLM, generate the answer, store the
+question/answer pair in the cache, and return the result.
+2. If it does exist: Immediately return the answer from the cache and print
+"Returned from Cache", completely bypassing the API call to save time
+and money.
+IV. Output Requirements Your console output must clearly prove that both
+grounding and caching work. Execute and print the following three scenarios:
+● Scenario 1 (First Ask): Ask a valid question. Print the LLM's response.
+● Scenario 2 (Cache Hit): Ask the exact same question again. Print:
+"Returned from Cache: [Answer]".
+● Scenario 3 (Grounding Test): Ask a completely random, out-of-context
+question (e.g., "What is the recipe for a chocolate cake?"). Print the LLM's
+response, which must be exactly: "I do not have enough information".
