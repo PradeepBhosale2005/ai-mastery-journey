@@ -19,3 +19,8 @@ def format_error(error_message: str) -> str:
         indent=2,
         ensure_ascii=False,
     )
+
+
+def format_failure(error_message: str) -> str:
+    """Backward-compatible alias used by robust CLI runner."""
+    return format_error(error_message)
