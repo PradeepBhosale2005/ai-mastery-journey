@@ -1,0 +1,1 @@
+A company wants to introduce an AI assistant for customer support. The assistant should reduce response time and improve service quality, but leadership is concerned about inaccurate answers, privacy risks, employee impact, and customer trust.
