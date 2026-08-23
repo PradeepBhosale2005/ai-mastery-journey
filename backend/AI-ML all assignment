@@ -1,0 +1,66 @@
+Assignment 1:
+ASSIGNMENTS
+1. Implement Linear Regression using the scikit-learn library or Pytorch and train the model on the
+processed dataset.
+1. Implement Linear Regression from scratch (without using any ML libraries for the model, create
+your own function to calculate gradient descent).
+Dataset for Linear Regression
+1. Compare the learned coefficients and intercept from your custom implementation with those
+obtained using scikit-learn or Pytorch.
+
+
+Assignment 2:
+Your goal is to take  the titanic dataset and transform it into a clean, numerical format suitable for training a MLmodel. You must demonstrate proficiency in handling missing data, encoding text data, scaling numerical features, and splitting data.
+
+1. Data Loading & Selection:Load the Titanic dataset, retain only the columns ['survived', 'pclass', 'sex', 'age', 'fare', 'embarked'], and identify which features contain missing values.
+2. Handling Missing Values: Impute missing values in the age column using the mean and in the embarked column using the mode (most frequent value).
+3. Categorical Encoding: Convert the sex column into binary numbers using Label Encoding and the embarked column into binary vectors using One-Hot Encoding.
+4. Feature Scaling: Apply StandardScaler to the age and fare columns to normalize their distribution to a mean of 0 and variance of 1.
+5. Train-Test Split: Split the dataset into 80% training and 20% testing sets, ensuring reproducibility with random_state=42.
+essing + model pipeline (e.g., RandomForestClassifier) with cross-validation; compare 2–3 models.
+
+Assignment 3:
+
+Develop a complete machine learning workflow using the sklearn library. Start by loading the Breast
+Cancer dataset and performing necessary Data Preprocessing, which must include splitting the data into
+training (80%) and testing (20%) sets to prevent data leakage. Since Logistic Regression is sensitive to
+the magnitude of input features, you are required to apply Feature Scaling (StandardScaler) to normalize
+the data. Once the data is prepared, train a Logistic Regression model and conduct a thorough Model
+Evaluation by generating the following deliverables:
+
+● Confusion Matrix: Visualize the raw counts of True Positives, True Negatives, False Positives, and
+False Negatives.
+● Classification Report: Calculate Precision, Recall, and F1-Score, specifically analyzing the
+"Malignant" class.
+● ROC & AUC: Plot the Receiver Operating Characteristic (ROC) curve and compute the Area Under
+the Curve (AUC) score to quantify the model's discriminative power.
+
+
+Assignment 4:
+
+ASSIGNMENT
+1. Write a PyTorch program to implement a very basic feed-forward neural network (multi-layer
+perceptron) for a simple classification task such as the Iris dataset. The program should load the
+dataset, split it into training and testing sets, convert the data into tensors, and train a neural network
+consisting of an input layer, one hidden layer with a ReLU activation function, and an output layer.
+You must define the model by inheriting from torch.nn.Module and implement the forward() function
+manually. Train the model using Cross-Entropy Loss and an optimizer such as SGD or Adam for
+multiple epochs, print the training loss during training, and finally evaluate the model on the test data
+by calculating the classification accuracy
+
+
+Assignment 5:
+
+ASSIGNMENT
+1. Write a PyTorch program to implement a basic feed-forward neural network (multi-layer perceptron) for a handwritten
+digit classification task. The program should load a handwritten digit dataset, split it into training and testing sets (if
+not already provided), normalize the images, and convert the data into tensors. Each image must be flattened into a
+1-D vector before being passed to the network.
+
+2. Design a neural network consisting of an input layer, one hidden layer with a ReLU activation function, and an output
+layer corresponding to the 10 digit classes (0–9). You must define the model by inheriting from torch.nn.Module and
+manually implement the forward() function.
+
+3. Train the model using Cross-Entropy Loss and an optimizer such as SGD or Adam for multiple epochs, printing the
+training loss during training. After training, evaluate the model on the test dataset by computing and displaying the
+classification accuracy.
