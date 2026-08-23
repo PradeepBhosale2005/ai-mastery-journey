@@ -1,0 +1,272 @@
+Assignment 1:
+
+LangChain Assignment(Day-1)
+Instructions:
+Complete the following 4 tasks using Python and LangChain.
+
+Setup: Use python-dotenv to load your API keys securely. Do not hardcode any keys in your submitted scripts.
+
+Assignment 1: The "Messy Data" Cleaner (PromptTemplates & Parsers)
+Scenario: The customer support team receives product reviews that are highly emotional and rambling. They need a tool to extract the core information.
+Task: 1. Create a PromptTemplate that takes a variable called {messy_review}.
+2. Instruct the LLM to read the review and output only a comma-separated string in this exact format: Sentiment: [Positive/Negative], Core Issue: [Brief summary of the problem].
+3. Use an LLM Wrapper (Gemini or OpenAI) and a StrOutputParser to build the chain.
+4. Test it with this input: "I bought this blender yesterday and it's absolutely terrible! The lid flew off while I was making a smoothie and my whole kitchen is covered in spinach. I want a refund!"
+
+Assignment 2: The Marketing Assembly Line (Multi-step LCEL Chains)
+Scenario: Your marketing team needs to generate global campaigns rapidly.
+Task: Build a two-step sequence using LangChain Expression Language (LCEL).
+Chain 1: Take a {product_name} and generate a catchy, 5-word English slogan.
+Chain 2: Take the output (slogan) from Chain 1, and translate it into French.
+Combine these into a single runnable sequence using the pipe operator (|).
+Print the final French slogan to the console.
+
+Assignment 3: Mini-RAG (Retrieval-Augmented Generation)
+Scenario: You have a small text file containing confidential rules for a fictional board game. The AI shouldn't know these rules by default.
+Task:
+Create a simple text file named game_rules.txt with 4-5 sentences of made-up rules (e.g., "The golden token is worth 50 points. Players cannot cross the river without a bridge card.").
+Use a LangChain Document Loader to read this file.
+Use a Text Splitter to chunk the document.
+Convert the chunks into embeddings and store them in an in-memory Vector Store (like FAISS or DocArrayInMemorySearch).
+Query the Vector Store with the question: "How many points is the golden token worth?" and print the AI's retrieved response.
+
+Assignment 4: The Watchful Eye (Callbacks & Logging)
+Scenario: API calls cost money. Your manager wants to know exactly how many "tokens" your AI app is consuming.
+Task: 1. Take the code you wrote for Assignment 1.
+2. Implement a LangChain Callback Handler (e.g., get_openai_callback if using OpenAI, or the equivalent token counter for your specific model).
+3. Execute the chain.
+4. Print a clean, formatted receipt to the console showing: Total Tokens Used, Prompt Tokens, Completion Tokens, and Total Cost.
+
+Note: To resolve corporate IT security blocks on external SaaS API keys (OpenAI/Google AI Studio), to install Ollama, download a small (3 or 7 billion parameter) model, serve that locally, and use that.
+
+
+Assignment 2:
+
+LangChain Assignment(Day-2) 
+Assignment 1: Build a Self-Correcting LangChain Agent 
+I. Core Objective :Construct a resilient, "self-correcting" intelligent agent using 
+LangChain. The agent must dynamically assess its situation, recognize missing 
+information, and autonomously chain multiple tools to arrive at a solution. 
+II. Required Tools Your agent must utilize an LLM alongside two custom tools: 
+● The Calculator Tool: Handles mathematical operations (add, subtract, multiply, 
+divide). Constraint: Cannot access external data. 
+● The Search Tool (e.g., Wikipedia/Google API): Retrieves up-to-date factual 
+information. Constraint: Cannot perform complex math. 
+III. The Challenge : You must test your agent using this exact prompt: "Multiply the 
+birth year of Albert Einstein by 5." 
+Your agent must navigate the following logic trap: 
+1. Initial Flaw: The prompt says "multiply," so the agent might try to use the 
+Calculator first. 
+2. Recognition: The LLM must realize it does not know Einstein's birth year. 
+3. Correction: It must pivot, use the Search Tool to find the year (1879), and then 
+pass that data to the Calculator Tool to get the final answer (9395). 
+IV. Output Requirements 
+Your console output must explicitly trace the agent's internal decision-making process. 
+Print the workflow clearly like this: 
+● Thought 1: [Agent's reasoning/plan] 
+● Action 1: [SearchTool: "Albert Einstein birth year"] 
+● Observation 1: ["1879"] 
+● Thought 2: [Revised reasoning incorporating the observation] 
+● Action 2: [CalculatorTool: "1879 * 5"] 
+● Final Answer: [9395] 
+
+Assignment 2: The "Smart Splitter" Proof 
+I. Core Objective : Demonstrate a deep understanding of data preparation for 
+RAG systems. You must prove that you understand how text chunking works 
+and, more importantly, why overlapping context is crucial for maintaining 
+semantic meaning across document splits. 
+II. Task Requirements 
+● The Input: Create or load a long text document (minimum of 3 dense 
+paragraphs). 
+● The Tool: You must use LangChain's 
+RecursiveCharacterTextSplitter. 
+● The Parameters: Strictly set your chunk_size to 200 characters and 
+your chunk_overlap to 50 characters. 
+III. The Challenge  
+Anyone can call a library function to split text. Your challenge is to prove the 
+library did its job. You must write a custom Python validation function that 
+programmatically compares two consecutive chunks and proves that the 
+50-character overlap actually exists. 
+IV. Output Requirements Your script must loop through the split documents and 
+print the results to the console clearly. The output must explicitly show: 
+● Chunk 1: [Print the full string of the first chunk] 
+● Chunk 2: [Print the full string of the second chunk] 
+● Extracted Overlap: [Programmatically extract and print the exact 
+intersecting text that exists at the end of Chunk 1 and the beginning of 
+Chunk 2] 
+
+Assignment 3: Solving "Context Poisoning" 
+I. Core Objective Build a mini-RAG retriever that uses Metadata Filtering to 
+resolve "Context Poisoning"—preventing the AI from getting confused by 
+contradictory documents (e.g., an outdated policy vs. a new policy). 
+II. Task Requirements 
+● The Data: Create two separate, fake text documents representing 
+company policies: 
+○ File 1: "Company WFH Policy: Work from home is strictly banned." 
+(Must be ingested with metadata: {"year": 2022}) 
+○ File 2: "Company WFH Policy: Work from home is allowed 3 days a 
+week." (Must be ingested with metadata: {"year": 2024}) 
+● The Storage: Embed both of these chunks into a Vector Store (like 
+ChromaDB or FAISS). 
+III. The Challenge  
+You must write a custom retrieval function that does not just perform a basic 
+semantic search. Your function must accept two arguments: a user_query and 
+a filter_year. 
+When the user asks, "What is the WFH policy?", your code must use the 
+metadata filter to completely ignore the 2022 document, retrieve only the 2024 
+policy, and pass that securely to the LLM to generate the final answer. 
+IV. Output Requirements Your console output must clearly prove that the filter 
+worked. Print the following execution steps: 
+● User Query: "What is the WFH policy?" 
+● Active Filter: Year: 2024 
+● Retrieved Context: [Print the exact chunk the vector database returned to 
+prove it ignored the 2022 file] 
+● LLM Final Answer: [The generated response based only on the 2024 
+policy] 
+
+Assignment 4: The "Fast & Grounded" System 
+I. Core Objective Build a generation function that is both cost-effective (low 
+latency) and perfectly grounded (zero hallucinations), addressing two of the 
+biggest challenges in production RAG systems. 
+II. Task Requirements 
+● The Grounding Component: You must write a strict system prompt that 
+forces the LLM to reply with exactly "I do not have enough information" if 
+the answer cannot be found in the provided context. 
+● The Latency Component: You must implement a basic caching system 
+using a Python dictionary (query_cache = {}). 
+III. The Challenge  
+Before sending any prompt to the LLM, your script must check if the exact user 
+question already exists in query_cache. 
+1. If it does not exist: Call the LLM, generate the answer, store the 
+question/answer pair in the cache, and return the result. 
+2. If it does exist: Immediately return the answer from the cache and print 
+"Returned from Cache", completely bypassing the API call to save time 
+and money. 
+IV. Output Requirements Your console output must clearly prove that both 
+grounding and caching work. Execute and print the following three scenarios: 
+● Scenario 1 (First Ask): Ask a valid question. Print the LLM's response. 
+● Scenario 2 (Cache Hit): Ask the exact same question again. Print: 
+"Returned from Cache: [Answer]". 
+● Scenario 3 (Grounding Test): Ask a completely random, out-of-context 
+question (e.g., "What is the recipe for a chocolate cake?"). Print the LLM's 
+response, which must be exactly: "I do not have enough information".
+
+Note: To resolve corporate IT security blocks on external SaaS API keys (OpenAI/Google AI Studio), to install Ollama, download a small (3 or 7 billion parameter) model, serve that locally, and use that.
+
+
+Assignment 3:
+
+Assignment 1: The "Confused Agent" Routing Challenge
+Objective: Design and implement a system where an AI agent can reliably distinguish
+between two similar user intents: initiating a one-time refund and canceling a recurring
+subscription. The core challenge is leveraging precise tool documentation (Docstrings) to
+guide the Agent's decision-making without explicit conditional logic (if/else).
+Scenario:
+An AI for a SaaS platform must handle user requests related to two distinct financial actions:
+1. refund_order: Reversing a specific, past transaction.
+2. cancel_subscription: Stopping all future recurring payments.
+Task Requirements:
+1. Tool Creation: Build two custom Python tools with the following signatures:
+○ refund_order(transaction_id: str)
+○ cancel_subscription(email: str)
+2. Docstring Design: Write highly specific and unambiguous Docstrings for both tools.
+This is the sole mechanism for the Agent to correctly route the user's request.
+User Language:
+Users often use non-technical language that can be ambiguous.
+● A user might say, "Stop taking money from my account!" (This is a Cancel request).
+● A user might say, "I want my money back for last month." (This is a Refund request).
+Test Cases:
+1. Cancel Test: "I don't want to use your software anymore, stop
+charging john@email.com." (Must select cancel_subscription).
+2. Refund Test: "My last charge of $50 on ID #TXN991 was a mistake,
+give it back." (Must select refund_order).
+Success Metric:
+The Agent must autonomously select the correct tool for both test prompts. If the Agent picks
+the wrong tool, the Docstring logic has failed. No manual if/else statements are permitted for
+routing.
+Assignment 2: Agent Resilience - The Broken API Challenge
+Objective: To build a financial agent capable of autonomous recovery when a primary data
+source fails.
+Scenario: Your Financial Agent is designed to retrieve stock prices. The primary stock price
+database is currently experiencing an outage (simulated failure). The Agent must demonstrate
+the ability to switch to a backup method.
+Required Tasks:
+1. Create a Failing Tool: Develop a tool named
+get_internal_stock_price(ticker: str). This tool must be intentionally coded
+to fail (e.g., return the string "Error: Database Timeout" or raise a handled
+exception that results in a failure observation).
+2. Create a Backup Tool: Develop a secondary, functional tool named
+search_public_web(query: str). This tool should return a mock web search
+result (e.g., "Apple stock is at $170").
+3. Agent Initialization: Initialize your Agent with both the failing primary tool and the
+functioning backup tool.
+4. Test Query: Ask the Agent the question: "What is the current stock price of
+Apple?"
+Success Criteria:
+The terminal output must clearly demonstrate the Agent's thought process, proving:
+● It Thought about and attempted to use the internal database.
+● It Acted by calling get_internal_stock_price.
+● It Observed the expected timeout/failure error.
+● It Autonomously Recovered by subsequently switching its action to the
+search_public_web tool to successfully answer the query.
+None
+Assignment 3: The "Lost Context" Detective Puzzle
+Target Concepts: RecursiveCharacterTextSplitter, Chunk Overlap, Vector Databases,
+and RAG Context Fragmentation.
+Scenario: You are given a tricky internal company document. If you configure your text splitter
+poorly, the AI will suffer from "Context Fragmentation." It will read the final section but won't
+understand what the "initiative" refers to, causing it to fail or hallucinate the answer.
+The Document: Please copy and paste this exact string into your Python code:
+Python
+tricky_document = """
+Section 1: The company Jade Global is launching a massive new
+internal initiative called Project Phoenix. This project will
+restructure the entire cloud infrastructure.
+Section 2: Employees must adhere to the standard office hours of
+9:00 AM to 5:00 PM. Remote work is permitted on Tuesdays and
+Thursdays, provided that the employee has secured prior approval
+from their direct manager.
+Section 3: The cafeteria will now offer extended hours, opening
+at 7:30 AM for breakfast. Please ensure you clear your tables
+after eating.
+Section 4: All IT support tickets must be filed through the
+internal Jira portal. Direct emails to the IT staff will be
+ignored starting next month.
+Section 5: The annual holiday party is scheduled for December
+15th. Dress code is semi-formal. Plus-ones are allowed if
+registered by November 30th.
+Section 6: Parking in the executive lot is strictly prohibited
+for unauthorized vehicles. Violators will be towed at the owner's
+expense.
+Section 7: Health insurance open enrollment begins in October.
+Please review the new dental and vision plans, as the providers
+have changed this year.
+Section 8: All employees must complete the mandatory
+cybersecurity training module by the end of Q3. Failure to do so
+will result in temporary suspension of VPN access.
+Section 9: Regarding the cloud restructure initiative mentioned
+earlier, the final deadline for its completion is December 31st,
+2026. The budget approved is $500,000.
+"""
+Your Tasks:
+1. The Pipeline: Build a local RAG pipeline using LangChain.
+2. The Splitter: Use the RecursiveCharacterTextSplitter to chunk the
+tricky_document.
+3. The Database: Store the chunks in a local, in-memory Vector Database (Use FAISS or
+Chroma). Do not use a cloud database. Use standard embeddings (like Google
+Generative AI Embeddings or HuggingFace).
+4. The Query: Ask your RAG pipeline this exact question: "What is the deadline and
+budget for Project Phoenix?"
+Notice that the name "Project Phoenix" is in Section 1, but the budget and deadline are all the
+way down in Section 9. If your chunk_size is too small and your chunk_overlap is 0, the AI
+will retrieve Section 9, but it won't know that the "cloud restructure initiative" is actually Project
+Phoenix. You must experiment with different chunk_size and chunk_overlap values until
+you find the perfect balance that allows the AI to connect the dots.
+Success Metric:
+● The Output: Your terminal must confidently print the correct answer: "December 31st,
+2026, with a $500,000 budget" without hallucinating.
+● The Explanation (Mandatory): At the very bottom of your Python script, you MUST
+include a multi-line comment (''' '''). In this comment, explain exactly why you
+chose your specific chunk_size and chunk_overlap numbers. Explain what
+happened when the overlap was too small, and why your final numbers fixed the issue.
+(Submissions without this logical explanation will lose points).
