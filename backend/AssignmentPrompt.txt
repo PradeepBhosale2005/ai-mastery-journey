@@ -1,35 +1,22 @@
-Assignment: AI Document Processing
-Workflow
-Problem Statement :
-Build a LangGraph-based workflow system that processes a Software Requirement
-Document (SRS) and produces structured insights.
-The system must use multiple agents and workflow orchestration to analyze the document,
-validate it, and produce a final report
-
-Diagram (I cannnot put diagram of question so i put the mermaid code for it )
-graph TD
-    %% Nodes
-    A[Input SRS]
-    B[Document Analyzer]
-    C1[Requirement Agent]
-    C2[Risk Agent]
-    D1[Architecture Agent]
-    D2[Test Case Agent]
-    E[Merge Results]
-    F[Human Review HITL]
-    G[Final Report]
-
-    %% Styles for specific nodes
-    style A stroke-dasharray: 5 5
-    style B stroke-dasharray: 5 5
-
-    %% Connections
-    A --> B
-    B --> C1
-    B --> C2
-    C1 --> D1
-    D2 -.-> E
-    D1 -.-> E
-    C2 --> D2
-    E --> F
-    F --> G
+React Assignment
+Project Overview
+For this assignment, you'll build a "Smart Task Manager." Think of it as a simple, mini
+version of a productivity app, like a to-do list with a small dashboard. The main goal is to
+create a working task manager that feels practical and useful, and you'll build it by using
+different React hooks to manage its features and behavior.
+Core Features (Must Have)
+● Add Task: Users must be able to add a new task by providing a Title and
+selecting a Priority level (High, Medium, or Low).
+● Display Task List: All added tasks should be displayed in a list, with each item
+clearly showing its Title, Priority, and current Status (Completed or Pending).
+● Mark as Completed: Users can toggle the status of any task between
+"Completed" and "Pending," typically with a checkbox or a similar control.
+● Delete Task: Each task should have a method for permanent removal from the
+list, such as a delete button.
+● Search Tasks: Implement a search bar that allows users to filter the displayed
+task list based on their input, matching against task titles.
+● Filter Tasks: Provide filter controls that let users change the view to show All
+tasks, only Completed tasks, or only Pending tasks.
+● Theme Toggle (Light/Dark): Include a switch that toggles the entire user
+interface between a light theme and a dark theme, demonstrating dynamic
+styling
