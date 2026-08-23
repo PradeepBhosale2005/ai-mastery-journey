@@ -1,16 +1,35 @@
-Assignment : Smart Expense Processing
+Assignment: AI Document Processing
 Workflow
-Objective
-Build a LangGraph workflow that processes a user's expense and decides how it should be
-handled based on the amount.
-The workflow should simulate a company expense approval system.
-Problem Statement
-Create a graph where a user submits an expense amount in USD.
-The system should:
-1. Add 10% tax to the expense.
-2. Convert the final amount to INR.
-3. Route the request based on the expense amount:
-○ If amount ≤ 100 USD → Auto Approved
-○ If 100 < amount ≤ 1000 USD → Manager Approval
-○ If amount > 1000 USD → Finance Department Approval
-Finally, the workflow should print the final decision and converted amount
+Problem Statement :
+Build a LangGraph-based workflow system that processes a Software Requirement
+Document (SRS) and produces structured insights.
+The system must use multiple agents and workflow orchestration to analyze the document,
+validate it, and produce a final report
+
+Diagram (I cannnot put diagram of question so i put the mermaid code for it )
+graph TD
+    %% Nodes
+    A[Input SRS]
+    B[Document Analyzer]
+    C1[Requirement Agent]
+    C2[Risk Agent]
+    D1[Architecture Agent]
+    D2[Test Case Agent]
+    E[Merge Results]
+    F[Human Review HITL]
+    G[Final Report]
+
+    %% Styles for specific nodes
+    style A stroke-dasharray: 5 5
+    style B stroke-dasharray: 5 5
+
+    %% Connections
+    A --> B
+    B --> C1
+    B --> C2
+    C1 --> D1
+    D2 -.-> E
+    D1 -.-> E
+    C2 --> D2
+    E --> F
+    F --> G
