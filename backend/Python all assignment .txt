@@ -1,0 +1,185 @@
+Pyhton Assignment 1: 
+1. Set up dev environment; create a Git repo; simple 'Hello World' in Python and a basic README about the learning goals.
+
+Assignment 2 
+Python Assignment
+
+1. Given an integer array, return True if any value appears at least twice in the array, and return False if every element is distinct.
+https://leetcode.com/problems/contains-duplicate/description/
+
+2. Given a number n. Find its unique prime factors in increasing order.
+https://www.geeksforgeeks.org/problems/prime-factors5052/1
+
+3. Iterate from 1 to n and return a list where multiples of 3 are "Fizz", 5 are "Buzz", and both are "FizzBuzz".
+https://leetcode.com/problems/fizz-buzz/description/
+
+4. You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i,height[i]). Find two lines that together with the x-axis form a container, such that the container contains the most water. Return the maximum amount of water a container can store.
+https://leetcode.com/problems/container-with-most-water/description/
+
+5. Check if a string is a palindrome after removing non-alphanumeric characters and ignoring the case.
+https://leetcode.com/problems/valid-palindrome/description/
+
+6. Given an array of strings, find the longest common prefix string shared among all of them.
+https://www.geeksforgeeks.org/problems/longest-common-prefix-in-an-array5129/1
+
+7. Convert a given space-separated string into CamelCase.
+https://www.geeksforgeeks.org/problems/convert-sentence-to-camel-case/1
+
+8. Given a string S, return the longest palindromic substring in S.
+https://leetcode.com/problems/longest-palindromic-substring/description/
+
+9. Given an array of strings, group the anagrams together. You can return the answer in any order.
+https://leetcode.com/problems/group-anagrams/description/
+
+10. Find indices of two numbers in an array that add up to a target.
+https://leetcode.com/problems/two-sum/description/
+
+11. Given an integer array nums and an integer K, return the k most frequent elements. You may return the answer in any order.
+https://leetcode.com/problems/top-k-frequent-elements/description/
+
+12. Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+https://leetcode.com/problems/min-stack/description/
+
+13. Find the common elements between two arrays.
+https://leetcode.com/problems/intersection-of-two-arrays/description/
+
+14. Convert a given Roman numeral string (e.g, "LVIII") into an integer.
+https://leetcode.com/problems/roman-to-integer/description/
+
+Assignment 3: 
+Assignment for Object-Oriented Programming (OOP) Concepts
+Instructions:
+● Solve the following exercises related to Object-Oriented Programming (OOP)
+concepts in Python.
+● Write the solution code for each exercise.
+● Include comments to explain your code where necessary.
+● Test your solutions with sample inputs to ensure correctness.
+● Write the answers in a Python script file or a Jupyter Notebook.
+
+Exercises:
+Class Creation:
+Create a Python class named Student with attributes name, age, and grade.
+Include a method display_info() to display the student's information.
+
+Inheritance:
+Create a subclass HighSchoolStudent of the Student class. Add an additional
+attribute grade_level and override the display_info() method to include the grade
+level.
+
+Encapsulation:
+Modify the Student class to make the age attribute private. Provide methods
+set_age() and get_age() to set and retrieve the age of the student.
+
+Polymorphism:
+Create a function print_student_info() that accepts an object of either
+Student or HighSchoolStudent class and prints the student's information using the
+display_info() method.
+
+Abstraction:
+Create an abstract class Shape with an abstract method calculate_area().
+Implement subclasses Circle and Rectangle inheriting from Shape with methods to
+calculate their respective areas.
+
+Assignment 4:
+Assignment 1: Array Creation and Manipulation
+
+1. Create a NumPy array of shape (5, 5) filled with random integers between 1 and 20. Replace all the elements in the third column with 1.
+2. Create a NumPy array of shape (4, 4) with values from 1 to 16. Replace the diagonal elements with 0.
+
+Assignment 2: Array Indexing and Slicing
+
+1. Create a NumPy array of shape (6, 6) with values from 1 to 36. Extract the sub-array consisting of the 3rd to 5th rows and 2nd to 4th columns.
+2. Create a NumPy array of shape (5, 5) with random integers. Extract the elements on the border.
+
+Assignment 3: Array Operations
+
+1. Create two NumPy arrays of shape (3, 4) filled with random integers. Perform element-wise addition, subtraction, multiplication, and division.
+2. Create a NumPy array of shape (4, 4) with values from 1 to 16. Compute the row-wise and column-wise sum.
+
+Assignment 4: Statistical Operations
+
+1. Create a NumPy array of shape (5, 5) filled with random integers. Compute the mean, median, standard deviation, and variance of the array.
+2. Create a NumPy array of shape (3, 3) with values from 1 to 9. Normalize the array (i.e., scale the values to have a mean of 0 and a standard deviation of 1).
+
+Assignment 5: Broadcasting
+
+1. Create a NumPy array of shape (3, 3) filled with random integers. Add a 1D array of shape (3,) to each row of the 2D array using broadcasting.
+2. Create a NumPy array of shape (4, 4) filled with random integers. Subtract a 1D array of shape (4,) from each column of the 2D array using broadcasting.
+
+Assignment 6: Linear Algebra
+
+1. Create a NumPy array of shape (3, 3) representing a matrix. Compute its determinant, inverse, and eigenvalues.
+2. Create two NumPy arrays of shape (2, 3) and (3, 2). Perform matrix multiplication on these arrays.
+
+Assignment 7: Advanced Array Manipulation
+
+1. Create a NumPy array of shape (3, 3) with values from 1 to 9. Reshape the array to shape (1, 9) and then to shape (9, 1).
+2. Create a NumPy array of shape (5, 5) filled with random integers. Flatten the array and then reshape it back to (5, 5).
+
+Assignment 8: Fancy Indexing and Boolean Indexing
+
+1. Create a NumPy array of shape (5, 5) filled with random integers. Use fancy indexing to extract the elements at the corners of the array.
+2. Create a NumPy array of shape (4, 4) filled with random integers. Use boolean indexing to set all elements greater than 10 to 10.
+
+Assignment 9: Structured Arrays
+
+1. Create a structured array with fields 'name' (string), 'age' (integer), and 'weight' (float). Add some data and sort the array by age.
+2. Create a structured array with fields 'x' and 'y' (both integers). Add some data and compute the Euclidean distance between each pair of points.
+
+Assignment 10: Masked Arrays
+
+1. Create a masked array of shape (4, 4) with random integers and mask the elements greater than 10. Compute the sum of the unmasked elements.
+2. Create a masked array of shape (3, 3) with random integers and mask the diagonal elements. Replace the masked elements with the mean of the unmasked elements.
+
+
+Assignment 5:
+
+Assignment 1: Array Creation and Manipulation
+
+1. Create a NumPy array of shape (5, 5) filled with random integers between 1 and 20. Replace all the elements in the third column with 1.
+2. Create a NumPy array of shape (4, 4) with values from 1 to 16. Replace the diagonal elements with 0.
+
+Assignment 2: Array Indexing and Slicing
+
+1. Create a NumPy array of shape (6, 6) with values from 1 to 36. Extract the sub-array consisting of the 3rd to 5th rows and 2nd to 4th columns.
+2. Create a NumPy array of shape (5, 5) with random integers. Extract the elements on the border.
+
+Assignment 3: Array Operations
+
+1. Create two NumPy arrays of shape (3, 4) filled with random integers. Perform element-wise addition, subtraction, multiplication, and division.
+2. Create a NumPy array of shape (4, 4) with values from 1 to 16. Compute the row-wise and column-wise sum.
+
+Assignment 4: Statistical Operations
+
+1. Create a NumPy array of shape (5, 5) filled with random integers. Compute the mean, median, standard deviation, and variance of the array.
+2. Create a NumPy array of shape (3, 3) with values from 1 to 9. Normalize the array (i.e., scale the values to have a mean of 0 and a standard deviation of 1).
+
+Assignment 5: Broadcasting
+
+1. Create a NumPy array of shape (3, 3) filled with random integers. Add a 1D array of shape (3,) to each row of the 2D array using broadcasting.
+2. Create a NumPy array of shape (4, 4) filled with random integers. Subtract a 1D array of shape (4,) from each column of the 2D array using broadcasting.
+
+Assignment 6: Linear Algebra
+
+1. Create a NumPy array of shape (3, 3) representing a matrix. Compute its determinant, inverse, and eigenvalues.
+2. Create two NumPy arrays of shape (2, 3) and (3, 2). Perform matrix multiplication on these arrays.
+
+Assignment 7: Advanced Array Manipulation
+
+1. Create a NumPy array of shape (3, 3) with values from 1 to 9. Reshape the array to shape (1, 9) and then to shape (9, 1).
+2. Create a NumPy array of shape (5, 5) filled with random integers. Flatten the array and then reshape it back to (5, 5).
+
+Assignment 8: Fancy Indexing and Boolean Indexing
+
+1. Create a NumPy array of shape (5, 5) filled with random integers. Use fancy indexing to extract the elements at the corners of the array.
+2. Create a NumPy array of shape (4, 4) filled with random integers. Use boolean indexing to set all elements greater than 10 to 10.
+
+Assignment 9: Structured Arrays
+
+1. Create a structured array with fields 'name' (string), 'age' (integer), and 'weight' (float). Add some data and sort the array by age.
+2. Create a structured array with fields 'x' and 'y' (both integers). Add some data and compute the Euclidean distance between each pair of points.
+
+Assignment 10: Masked Arrays
+
+1. Create a masked array of shape (4, 4) with random integers and mask the elements greater than 10. Compute the sum of the unmasked elements.
+2. Create a masked array of shape (3, 3) with random integers and mask the diagonal elements. Replace the masked elements with the mean of the unmasked elements.
