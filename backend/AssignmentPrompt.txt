@@ -1,22 +1,340 @@
-React Assignment
-Project Overview
-For this assignment, you'll build a "Smart Task Manager." Think of it as a simple, mini
-version of a productivity app, like a to-do list with a small dashboard. The main goal is to
-create a working task manager that feels practical and useful, and you'll build it by using
-different React hooks to manage its features and behavior.
-Core Features (Must Have)
-● Add Task: Users must be able to add a new task by providing a Title and
-selecting a Priority level (High, Medium, or Low).
-● Display Task List: All added tasks should be displayed in a list, with each item
-clearly showing its Title, Priority, and current Status (Completed or Pending).
-● Mark as Completed: Users can toggle the status of any task between
-"Completed" and "Pending," typically with a checkbox or a similar control.
-● Delete Task: Each task should have a method for permanent removal from the
-list, such as a delete button.
-● Search Tasks: Implement a search bar that allows users to filter the displayed
-task list based on their input, matching against task titles.
-● Filter Tasks: Provide filter controls that let users change the view to show All
-tasks, only Completed tasks, or only Pending tasks.
-● Theme Toggle (Light/Dark): Include a switch that toggles the entire user
-interface between a light theme and a dark theme, demonstrating dynamic
-styling
+
+Self-service HR AI assistant responds to employee queries instantly using HR
+knowledge repositories and conversational AI.
+Conversational AI, Knowledge Base, NLP, HRMS
+Integration, Teams/Slack Integration
+AI-powered pulse dashboard captures micro-feedback, performs sentiment analysis,
+and generates trend insights for leadership.
+Pulse Survey Platform, NLP Models, Power BI,
+Analytics Dashboard
+AI goal alignment assistant recommends and refines employee goals based on
+organizational strategy and role alignment.
+AI Recommendation Engine, Goal Management
+System, NLP, HRMS Integration
+AI-driven career pathing engine maps employee skills against career frameworks and
+recommends personalized learning roadmaps.
+Skills Taxonomy Engine, LMS Integration,
+Recommendation Engine, AI/ML Models, Analytics
+Dashboard
+AI agent integrates with Workday APIs to identify birthdays and anniversaries,
+checks employee status and timezone, generates personalized Gen-AI messages, and
+automatically sends emails or celebratory posts on Jadean Jar.
+Workday APIs, Generative AI/LLMs, Email
+Automation, Workflow Engine, Notification
+Systems, Social Platform Integration
+AI-powered assistant accepts employee or HRBP requests through chatbot, verifies
+permissions, auto-populates approved templates using Workday data, applies digital
+signatures, and generates downloadable PDFs instantly.
+Workday APIs, Chatbot Framework, Document
+Automation, SignNow APIs, PDF Generation
+Engine, Authentication Layer
+AI creates pulse surveys, analyzes employee responses using sentiment analysis,
+identifies emotional or engagement gaps, and automatically nudges managers for
+proactive conversations.
+Generative AI, NLP, Sentiment Analysis Models,
+Survey Platform, Notification Engine, Analytics
+Dashboard
+AI onboarding automation triggers based on Workday hiring status changes and
+automatically sends Day 1 and Day 2 onboarding communications with personalized
+instructions and resources.
+Workday Integration, Email Automation,
+Workflow Automation, Notification Systems,
+HRMS APIs
+The AI assistant interacts with learners, captures details such as service line, profile
+code, track, and Jade Care role, retrieves mapped learning journey information, and
+presents structured details including learning journey name, course list, and LMS
+links.
+Conversational AI, LMS Integration, Knowledge
+Base, AI Search Engine, APIs, Database
+This AI agent automatically reads resumes, compares them with the job description,
+and ranks the best candidates so recruiters can focus only on top profiles.
+NLP, LLM, Python
+This agent automatically checks availability of both interviewer and candidate and
+schedules meetings without manual coordination.
+APIs, Calendar Integration
+This chatbot answers candidate questions instantly anytime, improving their
+experience and reducing HR effort.
+LLM, Chatbot Framework
+This agent reads invoices automatically, extracts key details, and validates them
+before processing.
+OCR, ML
+This AI agent scans expense data and flags unusual or suspicious claims for review. ML
+This agent analyzes leads and prioritizes the ones most likely to convert into paying
+customers.
+ML
+This AI agent generates personalized sales emails based on customer data and
+context.
+LLM
+This agent scans code and detects potential bugs early in the development cycle. ML
+This chatbot allows employees to ask questions and instantly get answers from
+company knowledge.
+LLM, Vector DB
+This agent automatically categorizes tickets and assigns them to the right team. ML
+This agent summarizes lengthy documents into short and easy-to-understand points. LLM
+This agent provides a unified search across all company data sources. Vector DB, LLM
+This agent suggests relevant training based on role, skills, and career path. ML
+AI analyzes historical project demand, attrition trends, hiring patterns, and business
+forecasts to predict future workforce requirements and recommend hiring or
+reskilling strategies.
+AI/ML Models, HRMS APIs, Power BI, Data
+Warehouse, Predictive Analytics
+AI maps employee profiles, skills, certifications, and career interests to recommend
+internal job openings and career moves.
+Recommendation Engine, Skills Graph, HRMS
+Integration, AI Models
+AI identifies high-potential employees, evaluates readiness, and creates succession
+pipelines for leadership and business-critical positions.
+AI/ML Models, Talent Analytics, HRMS Integration,
+Dashboards
+AI generates quizzes, microlearning modules, assessments, summaries, and course
+content based on uploaded materials or learning objectives.
+Generative AI, LMS Integration, NLP, Content
+Generation Models
+AI creates a dynamic enterprise-wide skills inventory and maps relationships
+between skills, roles, certifications, and projects.
+Skills Ontology Engine, AI Search, Graph Database,
+HRMS APIs
+AI recommends project allocation for bench resources based on skills, availability,
+certifications, and business demand.
+AI Matching Engine, Resource Management
+System, HRMS Integration
+AI analyzes exit interview responses, identifies resignation trends, and highlights
+recurring themes such as compensation, manager issues, or growth concerns.
+NLP, Sentiment Analysis, Analytics Dashboard,
+Conversational AI
+AI analyzes leave trends, absenteeism patterns, and unusual leave behavior to
+identify potential misuse or burnout indicators.
+AI/ML Models, HRMS Integration, Analytics
+Dashboard
+AI compares employee compensation against industry benchmarks and recommends
+corrections or optimization opportunities.
+Market Data APIs, Compensation Analytics, AI
+Models
+AI analyzes utilization, work patterns, task completion, collaboration data, and
+productivity indicators to generate insights dashboards.
+Productivity Analytics, AI Models, Collaboration
+Tool APIs, Dashboards
+AI recommends personalized microlearning content based on employee role, skills,
+career goals, and learning history.
+Recommendation Engine, LMS APIs, Generative AI,
+Analytics
+AI maps communication and collaboration patterns across teams to identify
+influencers, isolated teams, and collaboration risks.
+Graph Analytics, Collaboration Tool APIs, AI
+Analytics
+AI captures key knowledge from employees through interviews, document
+summarization, and automated knowledge repository creation.
+Conversational AI, NLP, Knowledge Base,
+Summarization Models
+AI analyzes engagement patterns, workload trends, survey responses, and wellness
+signals to proactively identify employees needing support.
+Sentiment Analysis, Survey Tools, AI Analytics,
+Dashboards
+AI reviews contracts, highlights risky or non-standard clauses, and recommends
+corrections based on legal policies.
+NLP, Legal AI Models, Document Intelligence, OCR
+AI continuously monitors SLA timelines, predicts breaches, and automatically
+escalates unresolved tickets or issues.
+Workflow Automation, AI Monitoring Engine,
+ITSM APIs
+AI tracks asset allocation, warranty status, maintenance cycles, and recommends
+replacement or upgrades proactively.
+Asset Management System, AI Analytics,
+Workflow Automation
+AI aggregates customer feedback from surveys, emails, calls, and social channels to
+identify trends and sentiment insights.
+NLP, Sentiment Analysis, CRM Integration,
+Dashboards
+AI generates proposal drafts and RFP responses using existing templates, knowledge
+repositories, and customer requirements.
+Generative AI, Knowledge Base, Document
+Automation
+AI automatically gathers, validates, organizes, and tracks audit evidences for ISO,
+SOC, CMMI, and internal audits.
+Workflow Automation, Document Intelligence,
+SharePoint Integration, AI Search
+Business Impact Implementation
+Effort
+Reduced manual effort, improved verification
+accuracy, faster onboarding process, reduced
+compliance risks.
+Medium
+Faster response turnaround, reduced HR
+dependency, improved data accuracy, better
+employee experience.
+Medium
+Reduced manual coordination, improved
+process transparency, faster approvals, better
+user experience.
+Medium
+Reduced turnaround time, minimized manual
+effort, faster communication, improved
+employee engagement.
+Low
+Real-time workforce insights, proactive
+retention planning, improved decision-making,
+reduced reporting effort.
+High
+Improved compliance visibility, reduced
+manual tracking effort, proactive employee
+engagement, better policy adherence.
+Medium
+Improved employee engagement, early
+identification of dissatisfaction, better
+retention planning.
+High
+Improved onboarding experience, faster
+productivity, enhanced employee
+engagement.
+Medium
+Reduced payroll errors, improved compliance,
+minimized financial risks, reduced manual
+effort.
+Medium
+Reduced HR Ops workload, faster query
+resolution, improved employee self-service.
+Low
+Continuous employee sentiment tracking,
+proactive HR interventions, improved
+engagement insights.
+Medium
+Improved goal alignment, stronger
+performance culture, enhanced employee
+productivity.
+Medium
+Improved internal mobility, increased learning
+adoption, enhanced employee retention and
+career growth.
+High
+Improves employee engagement, ensures
+personalized employee experience, reduces
+manual tracking effort, strengthens company
+culture.
+Low
+Reduces HRBP dependency, faster document
+generation, improved employee experience,
+reduced turnaround time.
+Medium
+Improves employee engagement, proactive
+manager interventions, enhanced retention,
+stronger people-first culture.
+Medium
+Ensures standardized onboarding experience,
+improves new hire productivity, reduces HR
+administrative workload.
+Low
+Reduced ticket resolution time, lower manual
+workload, improved employee support
+experience, faster issue resolution.
+Medium
+Improved review cycle efficiency, better
+visibility for management, increased
+completion rates, reduced manual
+coordination.
+Medium
+Real-time decision-making, predictive
+workforce planning, reduced manual reporting
+effort, proactive retention strategies.
+High
+Improved compliance accuracy, reduced
+manual effort, personalized learner
+experience, and better training governance.
+Medium
+Increased training completion rates, reduced
+compliance risk, minimized manual follow-ups,
+and improved manager visibility.
+Medium
+Faster reassessment cycles, improved learner
+compliance, reduced administrative effort,
+and accurate tracking of attempts and
+progress.
+Medium
+Improved managerial visibility, reduced
+reporting effort, timely compliance tracking,
+and consistent report delivery.
+Low
+Real-time learning visibility, reduced
+dependency on L&D teams, improved
+manager self-service capabilities, and faster
+reporting access.
+Low
+Improved learner experience, reduced
+dependency on L&D support, better learning
+visibility, and increased course completion
+rates.
+Medium
+Faster hiring and better candidate selection Medium
+Saves time and improves coordination Low
+Better candidate experience Low
+Reduces manual work and errors Medium
+Cost control and fraud prevention Medium
+Improves sales conversion Medium
+Increases productivity Low
+Improves software quality High
+Improves productivity Medium
+Faster issue resolution Medium
+Saves time Low
+Improves access to information Medium
+Improves learning adoption Low
+Better workforce planning, reduced hiring
+delays, optimized resource utilization.
+High
+Increased retention, improved internal hiring,
+better employee growth opportunities.
+Medium
+Reduced business continuity risks, stronger
+leadership pipeline.
+High
+Faster content creation, scalable learning
+programs, reduced manual effort.
+Medium
+Improved workforce planning, targeted
+upskilling, enhanced project allocation.
+High
+Improved utilization rates, reduced bench
+costs, faster staffing.
+Medium
+Better retention planning, reduced attrition,
+data-driven HR interventions.
+Medium
+Improved policy compliance, reduced
+operational disruption, proactive workforce
+management.
+Medium
+Better compensation decisions, improved
+retention, competitive salary structures.
+High
+Improved productivity management,
+optimized workforce performance.
+High
+Increased learning engagement, improved skill
+development.
+Medium
+Improved collaboration, stronger
+organizational effectiveness.
+High
+Reduced knowledge loss, faster onboarding,
+stronger continuity planning.
+Medium
+Improved employee well-being, reduced
+burnout, better retention.
+Medium
+Faster contract review, reduced legal risks,
+improved compliance.
+High
+Improved SLA compliance, faster issue
+resolution, reduced operational delays.
+Medium
+Improved asset utilization, reduced downtime,
+optimized IT costs.
+Medium
+Improved customer satisfaction, proactive
+service improvements.
+Medium
+Faster proposal turnaround, improved sales
+productivity, higher response consistency.
+Medium
+Reduced audit preparation effort, improved
+compliance readiness, faster evidence
+management
+Medium
