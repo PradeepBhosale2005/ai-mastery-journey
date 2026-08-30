@@ -1,0 +1,34 @@
+{
+  "Report_Entry": [
+    {
+      "Employee_ID": "E1001",
+      "Worker_ID": "W1001",
+      "Preferred_Name": "Asha Demo",
+      "Legal_Name": "Asha Demo",
+      "Work_Email": "asha.demo@example.com",
+      "Manager_Email": "manager@example.com",
+      "Date_of_Birth": "1995-08-29",
+      "Hire_Date": "2021-08-29",
+      "Time_Zone": "Asia/Kolkata",
+      "Country": "India",
+      "Department": "HR Operations",
+      "Worker_Status": "Active",
+      "Celebration_Channel": "Email"
+    },
+    {
+      "Employee_ID": "E1002",
+      "Worker_ID": "W1002",
+      "Preferred_Name": "Jordan Demo",
+      "Legal_Name": "Jordan Demo",
+      "Work_Email": "jordan.demo@example.com",
+      "Manager_Email": "manager@example.com",
+      "Date_of_Birth": "1993-02-10",
+      "Hire_Date": "2020-08-29",
+      "Time_Zone": "America/New_York",
+      "Country": "United States",
+      "Department": "Engineering",
+      "Worker_Status": "Active",
+      "Celebration_Channel": "Jadean Jar"
+    }
+  ]
+}
